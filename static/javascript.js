@@ -1,0 +1,1 @@
+$selectOption = $_POST['seasonList'];

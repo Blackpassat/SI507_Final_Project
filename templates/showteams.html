@@ -1,0 +1,28 @@
+{% extends '/index.html' %}
+
+{% block content %}
+
+<article>
+  <header>
+    <div class="row">
+      <div class="col-sm-11">
+        <h2>Teams in {{ league_name }} in season {{ season }}:</h2>
+      </div>
+    </div>
+  </header>
+
+  <!-- WARNING: there is no missing code between <nav>...</nav> -->
+
+  <ul>
+    {% for i in range(team_num) %}
+
+    <!-- safe filter on for raw HTML stored in database -->
+    <li><a href="teams/{{ ids[i] }}">{{ names_long[i] }}, {{ names_short[i] }}</a></li>
+    {% endfor %}
+
+  </ul>
+
+  <p>page count: {{ team_num }}</p>
+</article>
+
+{% endblock content %}}

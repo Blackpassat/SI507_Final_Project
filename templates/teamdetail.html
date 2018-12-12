@@ -1,0 +1,245 @@
+{% extends '/index.html' %}
+
+{% block content %}
+
+<div class="row">
+	<div class="col-sm-1">
+    </div>
+    <div class="col-sm-8">
+        <h2>{{ name_long }}, {{ name_short }} in season {{ season }}</h2>
+    </div>
+    <div class="col-sm-1">
+    </div>
+</div>
+<div class="row">
+	<div class="col-sm-1">
+    </div>
+    <div class="col-sm-4">
+        <h4>Team Attributes</h4>
+    </div>
+    <div class="col-sm-1">
+    </div>
+</div>
+<div class="row">
+	<div class="col-sm-1">
+    </div>
+    <div class="col-sm-5">
+    	<table class="table table-striped table-hover">
+    		<thead>
+    			<tr>
+    				<th>General Attributes</th>
+    				<th> </th>
+    			</tr>
+    		</thead>
+    		<tbody>
+    			<tr>
+    				<td>Team Dribbling Class</td>
+    				{% if word_details[0][0] == 'Little' %}
+    					<td class="table-danger" align="center">{{ word_details[0][0] }}</td>
+    				{% elif word_details[0][0] == 'Normal' %}
+    					<td class="table-warning" align="center">{{ word_details[0][0] }}</td>
+    				{% elif word_details[0][0] == 'Lots' %}
+    					<td class="table-success" align="center">{{ word_details[0][0] }}</td>
+    				{% endif %}
+    			</tr>
+    			<tr>
+    				<td>Team Positioning Class</td>
+    				<td align="center">{{ word_details[0][1] }}</td>
+    			</tr>
+    			<tr>
+    				<td>Team Creation Positioning Class</td>
+    				<td align="center">{{ word_details[0][2] }}</td>
+    			</tr>
+    			<tr>
+    				<td>Team Defence Defender Class</td>
+    				<td align="center">{{ word_details[0][3] }}</td>
+    			</tr>
+    		</tbody>
+    	</table>
+    </div>
+    <div class="col-sm-5">
+    	<table class="table table-striped table-hover">
+    		<thead>
+    			<tr>
+    				<th>Play Style</th>
+    				<th></th>
+    			</tr>
+    		</thead>
+    		<tbody>
+    			<tr>
+    				<td width="60%">Play Speed</td>
+    				<td width="5%">{{ details[0][0] }}</td>
+    				<td><meter min="0" low="40" high="80" max="100" value={{ details[0][0] }}></meter></td>
+    			</tr>
+    			<tr>
+    				<td>Play Passing</td>
+    				<td width="5%">{{ details[0][1] }}</td>
+    				<td><meter min="0" low="40" high="80" max="100" value={{ details[0][1] }}></meter></td>
+    			</tr>
+    		</tbody>
+    	</table>
+    </div>
+    <div class="col-sm-1">
+    </div>
+</div>
+<div class="row">
+	<div class="col-sm-1">
+    </div>
+	<div class="col-sm-5">
+    	<table class="table table-striped table-hover">
+    		<thead>
+    			<tr>
+    				<th>Chance-Creation</th>
+    				<th></th>
+    			</tr>
+    		</thead>
+    		<tbody>
+    			<tr>
+    				<td width="60%">Chance-Creation Passing</td>
+    				<td width="5%">{{ details[0][2] }}</td>
+    				<td><meter min="0" low="40" high="80" max="100" value={{ details[0][2] }}></meter></td>
+    			</tr>
+    			<tr>
+    				<td>Chance-Creation Crossing</td>
+    				<td width="5%">{{ details[0][3] }}</td>
+    				<td><meter min="0" low="40" high="80" max="100" value={{ details[0][3] }}></meter></td>
+    			</tr>
+    			<tr>
+    				<td>Chance-Creation Shooting</td>
+    				<td width="5%">{{ details[0][4] }}</td>
+    				<td><meter min="0" low="40" high="80" max="100" value={{ details[0][4] }}></meter></td>
+    			</tr>
+    		</tbody>
+    	</table>
+    </div>
+	<div class="col-sm-5">
+    	<table class="table table-striped table-hover">
+    		<thead>
+    			<tr>
+    				<th>Defence</th>
+    				<th></th>
+    			</tr>
+    		</thead>
+    		<tbody>
+    			<tr>
+    				<td width="60%">Defence Pressure</td>
+    				<td width="5%">{{ details[0][5] }}</td>
+    				<td><meter min="0" low="40" high="80" max="100" value={{ details[0][5] }}></meter></td>
+    			</tr>
+    			<tr>
+    				<td>Defence Aggression</td>
+    				<td width="5%">{{ details[0][6] }}</td>
+    				<td><meter min="0" low="40" high="80" max="100" value={{ details[0][6] }}></meter></td>
+    			</tr>
+    			<tr>
+    				<td>Defence Team Width</td>
+    				<td width="5%">{{ details[0][7] }}</td>
+    				<td><meter min="0" low="40" high="80" max="100" value={{ details[0][7] }}></meter></td>
+    			</tr>
+    		</tbody>
+    	</table>
+    </div>
+    <div class="col-sm-1">
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-3">
+    </div>
+    <div class="col-sm-6">
+        {{ details_fig | safe }}
+    </div>
+</div>
+<div class="row">
+	<div class="col-sm-1">
+    </div>
+    <div class="col-sm-4">
+        <h4>Win / Lose Records</h4>
+    </div>
+    <div class="col-sm-1">
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-1">
+    </div>
+    <div class="col-sm-5">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Wins</th>
+                    <th>Ties</th>
+                    <th>Loses</th>
+                    <th>Wining Percentage</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>As Home Team</th>
+                    <td>{{ wins_home }}</td>
+                    <td>{{ ties_home }}</td>
+                    <td>{{ loses_home }}</td>
+                    <td>{{ win_percentage_home }}%</td>
+                </tr>
+                <tr>
+                    <th>As away Team</th>
+                    <td>{{ wins_away }}</td>
+                    <td>{{ ties_away }}</td>
+                    <td>{{ loses_away }}</td>
+                    <td>{{ win_percentage_away }}%</td>
+                </tr>
+                <tr>
+                    <th>Total</th>
+                    <td>{{ wins_away+wins_home }}</td>
+                    <td>{{ ties_away+ties_home }}</td>
+                    <td>{{ loses_away+loses_home }}</td>
+                    <td>{{ win_percentage_total }}%</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-1">
+    </div>
+	<div class="col-sm-5">
+        {{ record_fig_home | safe }}
+    </div>
+    <div class="col-sm-5">
+        {{ record_fig_away | safe }}
+    </div>
+    <div class="col-sm-1">
+    </div>
+</div>
+<div class="row">
+	<div class="col-sm-6">
+        {{ details_fig | safe }}
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-1">
+    </div>
+    <div class="col-sm-4">
+        <h4>Squad List</h4>
+    </div>
+    <div class="col-sm-1">
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-4">
+    </div>
+    <div class="col-sm-2">
+        <ul>
+            {% for i in range(player_num) %}
+            <!-- safe filter on for raw HTML stored in database -->
+            <li><a href="/player/{{ player_ids[i] }}">{{ player_names[i] }}</a></li>
+    {% endfor %}
+
+        </ul>
+    </div>
+    <div class="col-sm-5">
+        {{ age_fig | safe }}
+    </div>
+    <div class="col-sm-1">
+    </div>
+</div>
+{% endblock content %}}

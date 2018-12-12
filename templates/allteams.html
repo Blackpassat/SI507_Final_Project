@@ -1,0 +1,54 @@
+{% extends '/index.html' %}
+
+{% block content %}
+
+<article>
+  <header>
+  <div class="row">
+          <div class="col-sm-4">
+          </div>
+          <div class="col-sm-4">
+              <form action="/allteams" method="post">
+                <p>Season:<select class="custom-select homePageSelect" name="seasonList">
+                  {% for s in seasons %}
+                    <option value="{{s}}">{{s}}</option>
+                  {% endfor %}
+                </select></p>
+              <button type="submit" class="btn btn-outline-success float-sm-right">Find Teams</button>
+              </form>
+          </div>
+          <div class="col-sm-4">
+          </div>
+  </div>
+</header>
+
+  {% if ids %}
+  <!-- WARNING: there is no missing code between <nav>...</nav> -->
+  <div class="row">
+      <div class="col-sm-11">
+        
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+          </div>
+    <div class="col-sm-6">
+      <h2>Teams in the 11 major leagues in season {{ select_season }}:</h2>
+  <ul>
+    {% for i in range(team_num) %}
+
+    <!-- safe filter on for raw HTML stored in database -->
+    <li><a href="teams/{{ ids[i] }}">{{ names_long[i] }}, {{ names_short[i] }}</a></li>
+    {% endfor %}
+
+  </ul>
+
+  <p>page count: {{ team_num }}</p>
+  {% endif %}
+  </div>
+    <div class="col-sm-4">
+    </div>
+</div>
+</article>
+
+{% endblock content %}}

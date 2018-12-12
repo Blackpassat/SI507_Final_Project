@@ -1,0 +1,91 @@
+{% extends '/index.html' %}
+
+{% block content %}
+
+<div class="row">
+	<div class="col-sm-1">
+    </div>
+    <div class="col-sm-10">
+        <h2>{{ name }}</h2>
+    </div>
+    <div class="col-sm-1">
+    </div>
+</div>
+<div class="row">
+	<div class="col-sm-1">
+    </div>
+    <div class="col-sm-10">
+        <table class="table table-striped table-hover">
+    		<thead>
+    			<tr>
+    				<th>Age</th>
+    				<th>Height</th>
+    				<th>Weight</th>
+    				<th>Overall Rating</th>
+    				<th>Potential</th>
+    				<th>Preferred Foot</th>
+    			</tr>
+    		</thead>
+    		<tbody>
+    			<tr>
+    				<td>{{ age }}</td>
+    				<td>{{ height }}</td>
+    				<td>{{ weight }}</td>
+    				<td>{{ general_attr[0] }}</td>
+    				<td>{{ general_attr[1] }}</td>
+    				<td>{{ general_attr[2] }}</td>
+    			</tr>
+    		</tbody>
+    	</table>
+    </div>
+    <div class="col-sm-1">
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-1">
+    </div>
+	<div class="col-sm-5">
+        {{ attack_fig | safe }}
+    </div>
+    <div class="col-sm-5">
+    	{{ skill_fig | safe }}
+    </div>
+    <div class="col-sm-1">
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-1">
+    </div>
+	<div class="col-sm-5">
+        {{ move_fig | safe }}
+    </div>
+    <div class="col-sm-5">
+    	{{ power_fig | safe }}
+    </div>
+    <div class="col-sm-1">
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-1">
+    </div>
+	<div class="col-sm-5">
+        {{ ment_fig | safe }}
+    </div>
+    <div class="col-sm-5">
+    	{{ def_fig | safe }}
+    </div>
+    <div class="col-sm-1">
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-1">
+    </div>
+	<div class="col-sm-5">
+        {{ gk_fig | safe }}
+    </div>
+    <div class="col-sm-5">
+    </div>
+    <div class="col-sm-1">
+    </div>
+</div>
+{% endblock content %}}

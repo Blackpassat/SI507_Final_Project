@@ -1,0 +1,28 @@
+{% extends '/index.html' %}
+
+{% block content %}
+
+<article>
+  <header>
+    <div class="row">
+      <div class="col-sm-11">
+        <h2>Example players in DB:</h2>
+      </div>
+    </div>
+  </header>
+
+  <!-- WARNING: there is no missing code between <nav>...</nav> -->
+
+  <ul>
+    {% for i in range(num) %}
+
+    <!-- safe filter on for raw HTML stored in database -->
+    <li><a href="/player/{{ ids[i] }}">{{ names[i] }}</a></li>
+    {% endfor %}
+
+  </ul>
+
+  <p>page count: {{ num }}</p>
+</article>
+
+{% endblock content %}}
