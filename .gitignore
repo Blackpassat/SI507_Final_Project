@@ -5,3 +5,4 @@ __pycache__/
 final_project/
 screenshots*
 screenshots/
+.DS_Store
