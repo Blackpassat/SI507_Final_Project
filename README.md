@@ -11,7 +11,15 @@ The database contains 7 tables, Country, League, Match, Player, Player_Attribute
 :warning: The Player_Attributes and Team_Attributes tables are not complete. Because there are too many fields to type in. I just used attributes to represent all the attribute fields in the original table since they are just simple index of the table and does not involve in any key relationships.
 
 ## Code structure
-There are two major files, app.py and model.py. The app.py file basically controls the routes for this App and model.py provides functions for app.py to access the database. There are two parts in models.py that are relatively tricky. 
-The first one is how to draw win/lose records using Plotly. 
+There are two major files, app.py and model.py. The app.py file basically controls the routes for this App and model.py provides functions for app.py to access the database. There are two parts in models.py that are relatively tricky. The first one is how to draw win/lose records using Plotly. Since there are no direct information about win/lose records in the database, the only way to obtain this information is to comparing the team's goals with the opponent's. The two funcitons get_match_home_records(team_id) and get_match_away_records(team_id) in model.py finished this job. To draw the win/lose records using Plotly, I classified all wining matches, tie matches and lose matches to 3, 1 and 0. Then use the line graph to plot this info. The next one is how to get the squad list. Again there is no direct squad list in this database. I have to use the player fields in the Match table to get the players for a club in a specific season. The get_squad(team_id) function in model.py should do this. Then I have to use Python code to get the unique squad list because the players obtained in the last step contains repetition, which is implemented as get_unique_player(player_tuple1, player_tuple2) in model.py. There is a player class which is initiated by play's unique id. This class contains functions to return various information about a player. 
 
 ## User Guide
+1. Clone this repo to your preferred directory.
+```commandline
+$ git clone https://github.com/Blackpassat/SI507_Final_Project.git
+```
+2. Start a virtualenv with your preferred name.
+```commandline
+$ virtualenv <name>
+```
+3. 
