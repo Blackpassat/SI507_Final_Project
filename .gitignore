@@ -1,0 +1,7 @@
+*.pdf
+*.docx
+__pycache__/
+*.sqlite
+final_project/
+screenshots*
+screenshots/
