@@ -18,8 +18,18 @@ There are two major files, app.py and model.py. The app.py file basically contro
 ```commandline
 $ git clone https://github.com/Blackpassat/SI507_Final_Project.git
 ```
-2. Start a virtualenv with your preferred name.
+2. Start a virtualenv with your preferred name and start your virtualenv.
 ```commandline
 $ virtualenv <name>
+$ source <name>/bin/activate
 ```
-3. 
+3. Install all the fields in requirements.txt.
+```commandline
+$ pip install -r requirements.txt
+```
+4. Unzip the database.
+5. Run the app.py file to start the App.
+```commandline
+$ python app.py
+```
+6. Go to 127.0.0.1:5000 to play with the App
